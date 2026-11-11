@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Book a tattoo with Yuwen Su (ys.tattoos, Toronto). See an instant estimate and hold your spot with a $50 deposit.">
+<title>YS Tattoos Booking</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: a flash-sheet form on the left, one blue price ticket that follows you on the right. */
+:root{
+  --paper:#f5f2e9; --surface:#fffdf7; --ink:#141a2e; --muted:#5d6479; --line:#d9d4c5;
+  --blue:#2261e9; --blue-ink:#ffffff; --blue-soft:#e3ebfd; --accent-text:#1c50c8; --warn:#b3261e;
+  --display:"Space Grotesk","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --body:"Inter","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,"PingFang SC",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1324; --surface:#161c33; --ink:#eef0f7; --muted:#a0a7bd; --line:#2b3350;
+    --blue:#2f66e6; --blue-ink:#ffffff; --blue-soft:#1c2a55; --accent-text:#8fb0ff; --warn:#ff8a80;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1324; --surface:#161c33; --ink:#eef0f7; --muted:#a0a7bd; --line:#2b3350;
+  --blue:#2f66e6; --blue-ink:#ffffff; --blue-soft:#1c2a55; --accent-text:#8fb0ff; --warn:#ff8a80;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-block:24px 64px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:grid;gap:24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:600;letter-spacing:.01em}
+.brand span{color:var(--muted);font-weight:500}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:500 13px var(--body);padding:6px 14px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.top-right{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.iglink{color:var(--accent-text);font-weight:600;font-size:14px;text-underline-offset:3px}
+.done-actions{display:flex;gap:10px;flex-wrap:wrap}
+a.btn{text-decoration:none}
+.note{font-size:13px;color:var(--muted);border:1px dashed var(--line);border-radius:4px;padding:8px 12px}
+.intro{display:grid;gap:8px}
+h1{font-family:var(--display);font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.02;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.lede{margin:0;max-width:52ch;color:var(--muted);font-size:1.05rem}
+.layout{display:grid;gap:20px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:22px 20px;display:grid;gap:22px;min-width:0}
+.step-head{display:flex;align-items:baseline;gap:12px}
+.no{font:600 12px var(--mono);letter-spacing:.08em;color:var(--accent-text);white-space:nowrap}
+h2{font-family:var(--display);font-size:1.35rem;margin:0;line-height:1.2}
+.field{display:grid;gap:8px;min-width:0}
+.lab{font-weight:600;font-size:.95rem}
+.hint{font-size:13px;color:var(--muted);margin:0}
+input[type=text],input[type=email],textarea{
+  font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:10px 12px;width:100%}
+textarea{min-height:92px;resize:vertical}
+input:focus-visible,textarea:focus-visible,button:focus-visible,.chip:has(input:focus-visible),.sr:focus-visible + label{
+  outline:2px solid var(--accent-text);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 14px var(--body);cursor:pointer;
+  padding:9px 16px;border-radius:4px;border:1px solid var(--ink);background:transparent;color:var(--ink);width:fit-content}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:var(--blue-ink);font-size:16px;padding:14px 22px}
+.btn.small{padding:5px 10px;font-size:12px}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px}
+.thumbs img{width:64px;height:64px;object-fit:cover;border-radius:4px;border:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:7px 14px;
+  font-size:14px;cursor:pointer;background:var(--paper);user-select:none}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip:has(input:checked){background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pct{font:600 11px var(--mono);color:var(--accent-text);font-style:normal}
+.chip:has(input:checked) .pct{color:inherit}
+.size-read{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.size-read b{font:700 2.4rem/1 var(--display);font-variant-numeric:tabular-nums}
+.size-read span{color:var(--muted);font-size:14px}
+input[type=range]{width:100%;accent-color:var(--blue);margin:0}
+.ruler{display:flex;justify-content:space-between;padding-inline:6px;font:400 11px var(--mono);color:var(--muted)}
+.two{display:grid;gap:16px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.check input{width:18px;height:18px;margin-top:3px;accent-color:var(--blue)}
+.err{color:var(--warn);font-size:13px;margin:0}
+.next{margin:0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:n}
+.next li{counter-increment:n;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px}
+.next li::before{content:counter(n);font:600 12px var(--mono);width:24px;height:24px;border:1px solid var(--ink);border-radius:50%;
+  display:grid;place-items:center;margin-top:2px}
+.pay{display:grid;gap:10px;background:var(--blue-soft);border-radius:4px;padding:14px}
+.pay-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.pay-row small{display:block;color:var(--muted);font-size:12px}
+.sel{font:600 15px var(--mono);user-select:all;overflow-wrap:anywhere}
+.ticket{position:relative;overflow:hidden;background:var(--blue);color:var(--blue-ink);border-radius:4px;padding:20px 18px;
+  font-family:var(--mono);font-size:13px;display:grid;gap:14px}
+.ticket::after{content:"";position:absolute;right:0;top:0;width:120px;height:90px;pointer-events:none;opacity:.28;
+  background-image:radial-gradient(var(--blue-ink) 1.3px,transparent 1.7px);background-size:8px 8px;
+  -webkit-mask-image:linear-gradient(225deg,#000,transparent 70%);mask-image:linear-gradient(225deg,#000,transparent 70%)}
+.ticket h3{margin:0;font:600 12px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.rows{display:grid;gap:8px;font-variant-numeric:tabular-nums}
+.row{display:flex;justify-content:space-between;gap:12px}
+.row span:last-child{white-space:nowrap}
+.cut{border-top:1px dashed var(--blue-ink);opacity:.55}
+.total{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.total b{font:700 2.2rem/1 var(--display);font-variant-numeric:tabular-nums}
+.fine{margin:0;font-family:var(--body);font-size:12px;opacity:.85}
+.done{border-color:var(--blue);border-width:2px}
+.done pre{margin:0;font:400 13px/1.6 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;background:var(--paper);
+  border:1px solid var(--line);border-radius:4px;padding:14px;user-select:all}
+@media (min-width:860px){
+  .layout{grid-template-columns:minmax(0,1fr) 320px;align-items:start}
+  .step{grid-column:1;padding:28px}
+  .ticket-col{grid-column:2;grid-row:1 / span 5;position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+  .two{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Yuwen Su <span>· ys.tattoos</span></div>
+    <div class="top-right">
+      <a class="iglink" href="https://www.instagram.com/ys.tattoos/" target="_blank" rel="noopener" data-i="ig_link"></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="lang-en" aria-pressed="true">EN</button>
+        <button type="button" id="lang-zh" aria-pressed="false">中文</button>
+      </div>
+    </div>
+  </header>
+
+  <p class="note" data-i="preview"></p>
+
+  <div class="intro">
+    <h1 data-i="h1"></h1>
+    <p class="lede" data-i="lede"></p>
+  </div>
+
+  <form id="book" class="layout" novalidate>
+    <section class="step">
+      <div class="step-head"><span class="no">Nº 01</span><h2 data-i="s1"></h2></div>
+      <div class="field">
+        <span class="lab" data-i="refs_label"></span>
+        <p class="hint" data-i="refs_hint"></p>
+        <input class="sr" type="file" id="refs" accept="image/*" multiple>
+        <label class="btn" for="refs" data-i="refs_btn"></label>
+        <div class="thumbs" id="thumbs"></div>
+      </div>
+      <div class="field">
+        <label class="lab" for="idea" data-i="idea_label"></label>
+        <textarea id="idea" data-ph="idea_ph"></textarea>
+      </div>
+      <div class="field">
+        <span class="lab" data-i="design_label"></span>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="design" id="design-flash" value="flash"><span data-i="d_flash"></span></label>
+          <label class="chip"><input type="radio" name="design" id="design-asis" value="asis" checked><span data-i="d_asis"></span></label>
+          <label class="chip"><input type="radio" name="design" id="design-custom" value="custom"><span data-i="d_custom"></span></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="step-head"><span class="no">Nº 02</span><h2 data-i="s2"></h2></div>
+      <div class="field">
+        <label class="lab" for="size" data-i="size_label"></label>
+        <div class="size-read"><b id="size-num">3 in</b><span id="size-sub"></span></div>
+        <input type="range" id="size" min="1" max="10" step="0.5" value="3">
+        <div class="ruler" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+        <p class="hint" data-i="size_big"></p>
+      </div>
+      <div class="field">
+        <span class="lab" data-i="place_label"></span>
+        <div class="chips" id="places"></div>
+      </div>
+      <div class="two">
+        <div class="field">
+          <span class="lab" data-i="colour_label"></span>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="colour" id="colour-black" value="black" checked><span data-i="c_black"></span></label>
+            <label class="chip"><input type="radio" name="colour" id="colour-colour" value="colour"><span data-i="c_colour"></span></label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lab" data-i="shade_label"></span>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="shade" id="shade-line" value="line" checked><span data-i="s_line"></span></label>
+            <label class="chip"><input type="radio" name="shade" id="shade-shade" value="shade"><span data-i="s_shade"></span></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="ticket-col">
+      <div class="ticket" aria-live="polite">
+        <h3 data-i="t_title"></h3>
+        <div class="rows" id="rows"></div>
+        <div class="cut"></div>
+        <div class="total"><span data-i="t_total"></span><b id="total">$150</b></div>
+        <div class="cut"></div>
+        <div class="rows">
+          <div class="row"><span data-i="t_deposit"></span><span>$50</span></div>
+          <div class="row"><span data-i="t_balance"></span><span id="balance">$100</span></div>
+        </div>
+        <p class="fine" data-i="t_fine"></p>
+      </div>
+    </aside>
+
+    <section class="step">
+      <div class="step-head"><span class="no">Nº 03</span><h2 data-i="s3"></h2></div>
+      <div class="field">
+        <label class="lab" for="name" data-i="name_label"></label>
+        <input type="text" id="name" autocomplete="name">
+        <p class="err" id="e-name" hidden data-i="e_name"></p>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label class="lab" for="ig" data-i="ig_label"></label>
+          <input type="text" id="ig" placeholder="@yourhandle" autocapitalize="off">
+        </div>
+        <div class="field">
+          <label class="lab" for="email" data-i="email_label"></label>
+          <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+        </div>
+      </div>
+      <p class="hint" data-i="contact_hint"></p>
+      <p class="err" id="e-contact" hidden data-i="e_contact"></p>
+      <div class="field">
+        <label class="lab" for="avail" data-i="avail_label"></label>
+        <input type="text" id="avail" data-ph="avail_ph">
+      </div>
+      <label class="check"><input type="checkbox" id="adult"><span data-i="adult"></span></label>
+      <p class="err" id="e-adult" hidden data-i="e_adult"></p>
+    </section>
+
+    <section class="step">
+      <div class="step-head"><span class="no">Nº 04</span><h2 data-i="s4"></h2></div>
+      <ol class="next">
+        <li><span data-i="n1"></span></li>
+        <li><span data-i="n2"></span></li>
+        <li><span data-i="n3"></span></li>
+        <li><span data-i="n4"></span></li>
+      </ol>
+      <p class="hint" data-i="policy"></p>
+      <div class="pay">
+        <div class="pay-row">
+          <div><small data-i="pay_to"></small><span class="sel" id="pay-email">yuwen799@gmail.com</span></div>
+          <button type="button" class="btn small" id="copy-email" data-i="copy"></button>
+        </div>
+      </div>
+      <button type="submit" class="btn primary" data-i="send"></button>
+    </section>
+
+    <section class="step done" id="done" hidden>
+      <div class="step-head"><span class="no">Nº 05</span><h2 data-i="done_h"></h2></div>
+      <p class="hint" data-i="done_p"></p>
+      <pre id="summary"></pre>
+      <div class="done-actions">
+        <button type="button" class="btn" id="copy-summary" data-i="copy"></button>
+        <a class="btn" href="https://www.instagram.com/ys.tattoos/" target="_blank" rel="noopener" data-i="ig_open"></a>
+      </div>
+    </section>
+  </form>
+</div>
+
+<script>
+const RATE = 50, DEPOSIT = 50, ADD = 0.1;
+const T = {
+  en: {
+    preview: "How it works: fill this in and tap Send. You'll get your details as a short text. Copy it and DM it to @ys.tattoos.",
+    ig_link: "See my tattoos on Instagram ↗", ig_open: "Open @ys.tattoos ↗",
+    h1: "Book a tattoo",
+    lede: "Tell me what you want and watch the price add up as you go. A $50 deposit holds your spot.",
+    s1: "Your idea", refs_label: "Reference images", refs_hint: "Photos, sketches or screenshots. Up to 5.", refs_btn: "Add images",
+    idea_label: "Describe it", idea_ph: "A small koi with a little red, fine line, facing left…",
+    design_label: "The design", d_flash: "One of Yuwen's flash designs", d_asis: "My reference, exactly as it is", d_custom: "Needs changes or a custom drawing",
+    s2: "Size, spot and style", size_label: "Size, longest side", size_big: "Bigger than 10 in? Message me and I'll quote it by hand.",
+    place_label: "Placement", place_hint: "Spots marked +10% are harder to tattoo.",
+    colour_label: "Colour", c_black: "Black ink only", c_colour: "With colour",
+    shade_label: "Shading", s_line: "Linework only", s_shade: "With shading",
+    s3: "About you", name_label: "Name", ig_label: "Instagram", email_label: "Email",
+    contact_hint: "Leave at least one way to reach you.",
+    avail_label: "When can you come in?", avail_ph: "Weekday evenings, or Saturday afternoons",
+    adult: "I'm 18 or older.",
+    s4: "What happens next",
+    n1: "I look at your request and confirm the price and a time with you.",
+    n2: "You e-transfer the $50 deposit and let me know by DM.",
+    n3: "I confirm the deposit and you're booked. If you asked for a drawing, I start it now.",
+    n4: "The rest is due on the day. Your deposit comes off the total.",
+    policy: "The deposit is non-refundable. Need to move your date? DM me on Instagram.",
+    pay_to: "Interac e-Transfer to", code_label: "Your booking code", copy: "Copy", copied: "Copied",
+    send: "Send booking request",
+    t_title: "Estimate", t_total: "Estimated total", t_deposit: "Deposit to book", t_balance: "Due on the day",
+    t_fine: "This is an estimate. I confirm the final price once I've seen your reference.",
+    r_colour: "Colour", r_shade: "Shading", r_tricky: "Tricky spot", r_design: "Drawing or changes",
+    e_name: "Add your name.", e_contact: "Add an Instagram handle or an email.", e_adult: "Tattoos are for 18 and over, so this needs a tick.",
+    done_h: "Request ready", done_p: "Copy this summary and DM it to @ys.tattoos with your reference images.",
+    hints: ["about a toonie", "about two toonies side by side", "about the long side of a bank card", "about a phone", "about a paperback"],
+    sum: { head: "Tattoo request", name: "Name", contact: "Contact", size: "Size", longest: "longest side", place: "Placement", colour: "Colour",
+      shade: "Shading", design: "Design", idea: "Idea", avail: "Availability", refs: "Reference images", attach: "attached in this chat",
+      est: "Estimate", dep: "Deposit", bal: "Due on the day", none: "not given" }
+  },
+  zh: {
+    preview: "使用方法：填完后点提交，页面会把你的预约信息整理成一段文字。复制这段文字，私信发给 @ys.tattoos 就可以了。",
+    ig_link: "在 Instagram 看我的纹身作品 ↗", ig_open: "打开 @ys.tattoos ↗",
+    h1: "预约纹身",
+    lede: "告诉我你想纹什么，价格会边填边算出来。付 50 加元定金即可锁定档期。",
+    s1: "你的想法", refs_label: "参考图", refs_hint: "照片、草图、截图都可以，最多 5 张。", refs_btn: "添加图片",
+    idea_label: "描述一下", idea_ph: "一条小锦鲤，带一点红色，细线风格，头朝左…",
+    design_label: "图案", d_flash: "选 Yuwen 的现成图", d_asis: "按我的参考图，原样纹", d_custom: "需要改动或重新设计",
+    s2: "大小、位置和风格", size_label: "大小（最长边）", size_big: "超过 10 英寸？私信我单独报价。",
+    place_label: "位置", place_hint: "标了 +10% 的位置更难纹。",
+    colour_label: "颜色", c_black: "只用黑色", c_colour: "有彩色",
+    shade_label: "打雾", s_line: "只有线条", s_shade: "有打雾",
+    s3: "你的信息", name_label: "名字", ig_label: "Instagram", email_label: "邮箱",
+    contact_hint: "至少留一种联系方式。",
+    avail_label: "你什么时候方便来？", avail_ph: "工作日晚上，或周六下午",
+    adult: "我已满 18 岁。",
+    s4: "接下来的步骤",
+    n1: "我看过你的需求后，和你确认价格和时间。",
+    n2: "你用 e-Transfer 转 50 加元定金，转完私信告诉我一声。",
+    n3: "我确认收到定金，预约正式生效。需要设计的，我从这时开始画。",
+    n4: "余款当天付清，定金会从总价里扣除。",
+    policy: "定金不退。需要改期的话，直接在 Instagram 私信我。",
+    pay_to: "Interac e-Transfer 收款邮箱", code_label: "你的预约码", copy: "复制", copied: "已复制",
+    send: "提交预约",
+    t_title: "预估报价", t_total: "预估总价", t_deposit: "预约定金", t_balance: "当天支付",
+    t_fine: "这是预估价。我看过参考图后会和你确认最终价格。",
+    r_colour: "彩色", r_shade: "打雾", r_tricky: "较难的位置", r_design: "设计或改动",
+    e_name: "请填写名字。", e_contact: "请填写 Instagram 或邮箱。", e_adult: "纹身需年满 18 岁，请勾选确认。",
+    done_h: "预约摘要已生成", done_p: "复制下面的摘要，连同参考图一起私信发给 @ys.tattoos。",
+    hints: ["约一枚两元硬币大", "约两枚两元硬币并排", "约银行卡长边", "约一部手机长", "约一本小开本书"],
+    sum: { head: "纹身预约", name: "名字", contact: "联系方式", size: "大小", longest: "最长边", place: "位置", colour: "颜色",
+      shade: "打雾", design: "图案", idea: "想法", avail: "方便的时间", refs: "参考图", attach: "张，随私信附上",
+      est: "预估总价", dep: "定金", bal: "当天支付", none: "未填写" }
+  }
+};
+const PLACES = [
+  ["forearm","Forearm","小臂"],["upperarm","Upper arm","大臂"],["wrist","Wrist","手腕"],["shoulder","Shoulder","肩膀"],
+  ["back","Back","背部"],["chest","Chest","胸口"],["thigh","Thigh","大腿"],["calf","Calf","小腿"],["ankle","Ankle","脚踝"],
+  ["ribs","Ribs","肋骨",1],["hand","Hand","手背",1],["finger","Finger","手指",1],["neck","Neck","脖子",1],["foot","Foot","脚",1],
+  ["lip","Lip","嘴唇",1],["intimate","Intimate area","私密部位",1],
+  ["other","Somewhere else","其他"]
+];
+const $ = s => document.querySelector(s);
+let lang = "en";
+let refCount = 0;
+const t = k => T[lang][k];
+const money = v => { v = Math.round(v * 100) / 100; return "$" + (Number.isInteger(v) ? v : v.toFixed(2)); };
+const picked = n => (document.querySelector('input[name="' + n + '"]:checked') || {}).value;
+
+const code = "YS-" + Array.from({ length: 4 }, () => "ABCDEFGHJKMNPQRSTUVWXYZ23456789"[Math.floor(Math.random() * 30)]).join("");
+
+$("#places").innerHTML = PLACES.map((p, i) =>
+  '<label class="chip"><input type="radio" name="place" id="place-' + p[0] + '" value="' + p[0] + '"' + (i === 0 ? " checked" : "") +
+  '><span data-place="' + p[0] + '"></span>' + (p[3] ? '' : "") + "</label>").join("");
+
+function quote() {
+  const size = parseFloat($("#size").value);
+  const base = size * RATE;
+  const place = PLACES.find(p => p[0] === picked("place"));
+  const adds = [];
+  if (picked("colour") === "colour") adds.push("r_colour");
+  if (picked("shade") === "shade") adds.push("r_shade");
+  if (place && place[3]) adds.push("r_tricky");
+  if (picked("design") === "custom") adds.push("r_design");
+  const total = base * (1 + ADD * adds.length);
+  return { size, base, adds, total, balance: Math.max(total - DEPOSIT, 0), place };
+}
+function placeName(p) { return p ? p[lang === "zh" ? 2 : 1] : ""; }
+
+function render() {
+  const q = quote();
+  const cm = (q.size * 2.54).toFixed(1);
+  const h = T[lang].hints;
+  const hint = q.size <= 1.25 ? h[0] : q.size <= 2.5 ? h[1] : q.size <= 4 ? h[2] : q.size <= 6.5 ? h[3] : h[4];
+  $("#size-num").textContent = q.size + " in";
+  $("#size-sub").textContent = "≈ " + cm + " cm · " + hint;
+  const lines = [
+    q.size + " in · " + placeName(q.place),
+    picked("colour") === "colour" ? t("c_colour") : t("c_black"),
+    picked("shade") === "shade" ? t("s_shade") : t("s_line"),
+    { flash: t("d_flash"), asis: t("d_asis"), custom: t("d_custom") }[picked("design")]
+  ];
+  $("#rows").innerHTML = lines.map(l => "<div>" + l + "</div>").join("");
+  $("#total").textContent = money(q.total);
+  $("#balance").textContent = money(q.balance);
+}
+
+function applyLang() {
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+  document.querySelectorAll("[data-i]").forEach(el => { el.textContent = t(el.dataset.i); });
+  document.querySelectorAll("[data-ph]").forEach(el => { el.placeholder = t(el.dataset.ph); });
+  document.querySelectorAll("[data-place]").forEach(el => { el.textContent = placeName(PLACES.find(p => p[0] === el.dataset.place)); });
+  $("#lang-en").setAttribute("aria-pressed", lang === "en");
+  $("#lang-zh").setAttribute("aria-pressed", lang === "zh");
+  render();
+  if (!$("#done").hidden) $("#summary").textContent = summary();
+}
+
+function summary() {
+  const q = quote(), s = T[lang].sum;
+  const yes = lang === "zh" ? "有" : "yes", no = lang === "zh" ? "无" : "no";
+  const design = { flash: t("d_flash"), asis: t("d_asis"), custom: t("d_custom") }[picked("design")];
+  const contact = [$("#ig").value.trim(), $("#email").value.trim()].filter(Boolean).join(" / ");
+  const refs = lang === "zh" ? refCount + " " + s.attach : refCount + ", " + s.attach;
+  return [
+    s.head,
+    s.name + ": " + $("#name").value.trim(),
+    s.contact + ": " + contact,
+    s.size + ": " + q.size + " in (" + s.longest + ")",
+    s.place + ": " + placeName(q.place),
+    s.colour + ": " + (picked("colour") === "colour" ? yes : no),
+    s.shade + ": " + (picked("shade") === "shade" ? yes : no),
+    s.design + ": " + design,
+    s.idea + ": " + ($("#idea").value.trim() || s.none),
+    s.avail + ": " + ($("#avail").value.trim() || s.none),
+    s.refs + ": " + refs,
+    s.est + ": " + money(q.total) + " · " + s.dep + ": $" + DEPOSIT + " · " + s.bal + ": " + money(q.balance)
+  ].join("\n");
+}
+
+function copyFrom(btn, getText, el) {
+  btn.addEventListener("click", () => {
+    const ok = () => { btn.textContent = t("copied"); setTimeout(() => { btn.textContent = t("copy"); }, 1500); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText(getText()).then(ok, fallback); } catch (e) { fallback(); }
+  });
+}
+copyFrom($("#copy-email"), () => $("#pay-email").textContent, $("#pay-email"));
+copyFrom($("#copy-summary"), () => $("#summary").textContent, $("#summary"));
+
+$("#refs").addEventListener("change", e => {
+  const files = Array.from(e.target.files || []).slice(0, 5);
+  refCount = files.length;
+  const box = $("#thumbs");
+  box.innerHTML = "";
+  files.forEach(f => { const img = document.createElement("img"); img.alt = f.name; img.src = URL.createObjectURL(f); box.appendChild(img); });
+});
+
+$("#book").addEventListener("input", render);
+$("#book").addEventListener("change", render);
+$("#lang-en").addEventListener("click", () => { lang = "en"; applyLang(); });
+$("#lang-zh").addEventListener("click", () => { lang = "zh"; applyLang(); });
+
+$("#book").addEventListener("submit", e => {
+  e.preventDefault();
+  const noName = !$("#name").value.trim();
+  const noContact = !$("#ig").value.trim() && !$("#email").value.trim();
+  const noAdult = !$("#adult").checked;
+  $("#e-name").hidden = !noName;
+  $("#e-contact").hidden = !noContact;
+  $("#e-adult").hidden = !noAdult;
+  if (noName) { $("#name").focus(); return; }
+  if (noContact) { $("#ig").focus(); return; }
+  if (noAdult) { $("#adult").focus(); return; }
+  $("#summary").textContent = summary();
+  $("#done").hidden = false;
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  $("#done").scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
+});
+
+applyLang();
+</script>
+
+</body>
+</html>
