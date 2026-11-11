@@ -34,7 +34,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
   display:grid;gap:24px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.brand{font-family:var(--display);font-weight:600;letter-spacing:.01em}
+.brand{color:inherit;text-decoration:none;font-family:var(--display);font-weight:600;letter-spacing:.01em}
 .brand span{color:var(--muted);font-weight:500}
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
 .lang button{font:500 13px var(--body);padding:6px 14px;border:0;background:transparent;color:var(--muted);cursor:pointer}
@@ -119,9 +119,10 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:0}
 
 <div class="wrap">
   <header class="top">
-    <div class="brand">Yuwen Su <span>· ys.tattoos</span></div>
+    <a class="brand" href="https://yuwensu.com/" target="_blank" rel="noopener">Yuwen Su <span>· ys.tattoos</span></a>
     <div class="top-right">
       <a class="iglink" href="https://www.instagram.com/ys.tattoos/" target="_blank" rel="noopener" data-i="ig_link"></a>
+      <a class="btn small" href="https://yuwensu.com/" target="_blank" rel="noopener" data-i="home_link"></a>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" id="lang-en" aria-pressed="true">EN</button>
         <button type="button" id="lang-zh" aria-pressed="false">中文</button>
@@ -268,7 +269,7 @@ const RATE = 50, DEPOSIT = 50, ADD = 0.1;
 const T = {
   en: {
     preview: "How it works: fill this in and tap Send. You'll get your details as a short text. Copy it and DM it to @ys.tattoos.",
-    ig_link: "See my tattoos on Instagram ↗", ig_open: "Open @ys.tattoos ↗",
+    ig_link: "See my tattoos on Instagram ↗", ig_open: "Open @ys.tattoos ↗", home_link: "My portfolio ↗",
     h1: "Book a tattoo",
     lede: "Tell me what you want and watch the price add up as you go. A $50 deposit holds your spot.",
     s1: "Your idea", refs_label: "Reference images", refs_hint: "Photos, sketches or screenshots. Up to 5.", refs_btn: "Add images",
@@ -302,7 +303,7 @@ const T = {
   },
   zh: {
     preview: "使用方法：填完后点提交，页面会把你的预约信息整理成一段文字。复制这段文字，私信发给 @ys.tattoos 就可以了。",
-    ig_link: "在 Instagram 看我的纹身作品 ↗", ig_open: "打开 @ys.tattoos ↗",
+    ig_link: "在 Instagram 看我的纹身作品 ↗", ig_open: "打开 @ys.tattoos ↗", home_link: "个人主页 ↗",
     h1: "预约纹身",
     lede: "告诉我你想纹什么，价格会边填边算出来。付 50 加元定金即可锁定档期。",
     s1: "你的想法", refs_label: "参考图", refs_hint: "照片、草图、截图都可以，最多 5 张。", refs_btn: "添加图片",
