@@ -215,6 +215,7 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:0}
         <span class="lab" data-i="to_design"></span>
         <p class="hint" id="to-need-ref" data-i="to_need_ref"></p>
         <div class="to-designs" id="to-designs"></div>
+        <p class="hint" data-i="to_design_hint"></p>
       </div>
       <div class="field">
         <span class="lab" data-i="to_photo"></span>
@@ -340,6 +341,7 @@ const T = {
     shade_label: "Shading", s_line: "Linework only", s_shade: "With shading",
     s_try: "Try it on", to_opt: "optional", to_lede: "See it on your own skin before you book. Save the picture and send it with your request.",
     to_design: "Design", to_need_ref: "Add a reference image in step 01 first. It shows up here.",
+    to_design_hint: "Works best when the image is just the design on a plain light background. Crop out anything else first, like the bars around a screenshot.",
     to_photo: "Your photo", to_photo_hint: "A clear, well-lit photo of the spot, taken straight on.", to_photo_btn: "Take or choose a photo",
     to_bad: "That image could not be opened. Try a JPG or PNG.",
     to_privacy: "Your photo stays on this device. It is drawn in your browser and never uploaded anywhere.",
@@ -384,6 +386,7 @@ const T = {
     shade_label: "打雾", s_line: "只有线条", s_shade: "有打雾",
     s_try: "先试戴看看", to_opt: "可选", to_lede: "预约前先看看纹在自己身上的样子。保存这张图，和预约信息一起发给我。",
     to_design: "图案", to_need_ref: "先在第 01 步添加参考图，它会出现在这里。",
+    to_design_hint: "图片里只有图案、背景是浅色纯色时效果最好。截图请先把周围的状态栏等多余部分裁掉。",
     to_photo: "你的照片", to_photo_hint: "光线好、正对着拍的部位照片效果最好。", to_photo_btn: "拍照或选一张照片",
     to_bad: "这张图片打不开，换一张 JPG 或 PNG 试试。",
     to_privacy: "照片只留在这台设备上，在你的浏览器里绘制，不会上传到任何地方。",
